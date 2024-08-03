@@ -87,8 +87,8 @@ export class SimulationComponent implements OnInit {
       return false;
     }
 
-    if (tm < ti) {
-      alert('The time to death (Tm) cannot be less than the time to recovery (Ti).');
+    if (tm > ti) {
+      alert('The time to death (Tm) cannot be greater than the time to recovery (Ti).');
       return false;
     }
   

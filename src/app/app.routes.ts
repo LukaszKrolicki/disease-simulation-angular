@@ -8,4 +8,5 @@ export const routes: Routes = [
     { path: 'simulation', component: SimulationComponent },
     { path: 'edit/:uuid', component: EditComponent },
     { path: 'details/:uuid', component: DetailsComponent },
-  ];
+    { path: '**', redirectTo: '/simulation' } 
+];

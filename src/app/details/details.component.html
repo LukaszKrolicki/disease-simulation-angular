@@ -1,0 +1,45 @@
+<button class="b-button" (click)="goBack()">Go to simulations list</button>
+<div class="container">
+    <div class="results-section">
+      <div *ngIf="simulationResults.length > 0" class="results-container">
+        <h2>Simulation Results</h2>
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>Infected</th>
+              <th>Vulnerable</th>
+              <th>Dead</th>
+              <th>Recovered</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let result of simulationResults; let i = index" (click)="onDayClick(i)">
+              <td>{{ result.day }}</td>
+              <td>{{ result.pi }}</td>
+              <td>{{ result.pv }}</td>
+              <td>{{ result.pm }}</td>
+              <td>{{ result.pr }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="simulationResults.length === 0">
+        <p>No simulation results found.</p>
+      </div>
+    </div>
+    <div class="charts-section">
+      <div class="chart-container">
+        <canvas id="lineChart"></canvas>
+      </div>
+      <div class="chart-container">
+        <canvas id="pieChart"></canvas>
+      </div>
+      <div class="chart-container">
+        <canvas id="barChart"></canvas>
+      </div>
+      <div class="chart-container">
+        <canvas id="polarChart"></canvas>
+      </div>
+    </div>
+  </div>

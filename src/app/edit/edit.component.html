@@ -1,0 +1,46 @@
+<button class="b-button" (click)="goBack()">Go to simulations list</button>
+
+<div class="container" *ngIf="simulation">
+    <div class="form-section">
+      <h2>Update Simulation</h2>
+      <form (ngSubmit)="updateSimulation()">
+        <table>
+          <tr>
+            <td><label for="n">Simulation name:</label></td>
+            <td><input type="text" id="n" [(ngModel)]="simulation.n" name="n" required></td>
+          </tr>
+          <tr>
+            <td><label for="p">Population size:</label></td>
+            <td><input type="number" id="p" [(ngModel)]="simulation.p" name="p" required></td>
+          </tr>
+          <tr>
+            <td><label for="i">Initial infected people:</label></td>
+            <td><input type="number" id="i" [(ngModel)]="simulation.i" name="i" required></td>
+          </tr>
+          <tr>
+            <td><label for="r">How many people an infected person infects:</label></td>
+            <td><input type="number" id="r" [(ngModel)]="simulation.r" name="r" required></td>
+          </tr>
+          <tr>
+            <td><label for="m">Mortality rate:</label></td>
+            <td><input type="number" id="m" [(ngModel)]="simulation.m" name="m" required></td>
+          </tr>
+          <tr>
+            <td><label for="ti">Recovery Time:</label></td>
+            <td><input type="number" id="ti" [(ngModel)]="simulation.ti" name="ti" required></td>
+          </tr>
+          <tr>
+            <td><label for="tm">Death Time:</label></td>
+            <td><input type="number" id="tm" [(ngModel)]="simulation.tm" name="tm" required></td>
+          </tr>
+          <tr>
+            <td><label for="ts">Simulation duration:</label></td>
+            <td><input type="number" id="ts" [(ngModel)]="simulation.ts" name="ts" required></td>
+          </tr>
+          <tr>
+            <td colspan="2"><button type="submit">Update Simulation</button></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </div>

@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="form-section">
+      <h2>Simulation Form</h2>
+      <form (ngSubmit)="addSimulation()">
+        <label for="n">Simulation name:</label>
+        <input type="text" id="n" [(ngModel)]="simulation.n" name="n" required>
+  
+        <label for="p">Population size:</label>
+        <input type="number" id="p" [(ngModel)]="simulation.p" name="p" required>
+  
+        <label for="i">Initial infected people</label>
+        <input type="number" id="i" [(ngModel)]="simulation.i" name="i" required>
+  
+        <label for="r">How many people an infected person infects:</label>
+        <input type="number" id="r" [(ngModel)]="simulation.r" name="r" required>
+  
+        <label for="m">Mortality rate</label>
+        <input type="number" id="m" [(ngModel)]="simulation.m" name="m" required>
+  
+        <label for="ti">Recovery Time</label>
+        <input type="number" id="ti" [(ngModel)]="simulation.ti" name="ti" required>
+  
+        <label for="tm">Death Time</label>
+        <input type="number" id="tm" [(ngModel)]="simulation.tm" name="tm" required>
+  
+        <label for="ts">Simulation duration</label>
+        <input type="number" id="ts" [(ngModel)]="simulation.ts" name="ts" required>
+  
+        <button type="submit">Add Simulation</button>
+      </form>
+    </div>
+    <div class="list-section">
+      <h2>Simulations List</h2>
+      <ul>
+          <li *ngFor="let sim of simulations">
+              {{sim.n}}
+              <div class="button-group">
+                  <button (click)="editSimulation(sim)">Edit</button>
+                  <button (click)="viewDetails(sim.uuid)">Details</button>
+                  <button (click)="deleteSimulation(sim.uuid)">Delete</button>
+              </div>
+          </li>
+      </ul>
+  </div>
+</div>

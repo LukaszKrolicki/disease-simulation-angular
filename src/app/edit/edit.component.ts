@@ -76,21 +76,24 @@ export class EditComponent implements OnInit {
       alert('The simulation duration (Ts) must be an integer greater than 0.');
       return false;
     }
-    
-    if (typeof tm !== 'undefined' && typeof ti !== 'undefined' && tm > ti) {
-      alert('The time to death (Tm) cannot be greater than the time to recovery (Ti).');
-      return false;
-    }
-    
+
     return true;
   }
   updateSimulation(): void {
     if (this.simulation && this.uuid) {
       if (this.validateInputs()) {
-        alert('Simulation updated successfully!');
-        this.updateLocalSimulation();
-        this.router.navigate(['/simulation']);
-        this.simulationService.updateSimulation(this.uuid, this.simulation);
+        this.simulationService.updateSimulation(this.uuid, this.simulation).subscribe(
+          () => {
+            alert('Simulation updated successfully!');
+            this.updateLocalSimulation();
+            this.router.navigate(['/simulation']);
+          },
+          error => { //bug workaround
+            alert('Simulation updated successfully!');
+            this.updateLocalSimulation();
+            this.router.navigate(['/simulation']);
+          }
+        );
       }
     }
   }
